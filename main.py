@@ -29,6 +29,7 @@ for i in range(len(loc_count)):
     for l in range(50):
         for j in range(len(player)):
             if player[j][1]:
+                #if player is in jail
                 k = dice[randrange(len(dice))]
                 if k[1] or player[j][2] >= 2:
                     player[j][2] = 0
@@ -52,6 +53,7 @@ for i in range(len(loc_count)):
                     player[j][2] = player[j][2] + 1
                     loc_count[i][10] = loc_count[i][10] + 1
             else:
+                #if player is not in jail
                 k = dice[randrange(len(dice))]
                 move(player[j], k)
                 loc_count[i][player[j][0]] = loc_count[i][player[j][0]] + 1
@@ -68,6 +70,7 @@ for i in range(len(loc_count)):
                         else:
                             move(player[j], k)
                             loc_count[i][player[j][0]] = loc_count[i][player[j][0]] + 1
+    #reset players for next game
     player = [[0, False, 0] for x in range(4)]
 
 ##for i in range(40):
